@@ -1,0 +1,24 @@
+{
+  "assemble.midnightconfig.title": "Assemble Config",
+  "assemble.midnightconfig.seats": "-Seats-",
+  "assemble.midnightconfig.seatReach": "Seat Reach",
+
+  "block.assemble.white_seat": "White Seat",
+  "block.assemble.light_gray_seat": "Light Gray Seat",
+  "block.assemble.gray_seat": "Gray Seat",
+  "block.assemble.black_seat": "Black Seat",
+  "block.assemble.brown_seat": "Brown Seat",
+  "block.assemble.red_seat": "Red Seat",
+  "block.assemble.orange_seat": "Orange Seat",
+  "block.assemble.yellow_seat": "Yellow Seat",
+  "block.assemble.lime_seat": "Lime Seat",
+  "block.assemble.green_seat": "Green Seat",
+  "block.assemble.cyan_seat": "Cyan Seat",
+  "block.assemble.light_blue_seat": "Light Blue Seat",
+  "block.assemble.blue_seat": "Blue Seat",
+  "block.assemble.purple_seat": "Purple Seat",
+  "block.assemble.magenta_seat": "Magenta Seat",
+  "block.assemble.pink_seat": "Pink Seat",
+
+  "block.assemble.copper_glass": "Copper Glass"
+}

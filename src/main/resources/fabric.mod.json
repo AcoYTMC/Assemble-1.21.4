@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "assemble",
+	"version": "${version}",
+	"name": "Assemble",
+	"description": "Improves Minecraft's Building System.",
+	"authors": [
+		"AcoYT"
+	],
+	"license": "ARR",
+	"icon": "assets/assemble/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.acoyt.assemble.Assemble"
+		],
+		"client": [
+			"net.acoyt.assemble.AssembleClient"
+		],
+		"modmenu": [
+			"net.acoyt.assemble.compat.ModMenuCompat"
+		]
+	},
+	"mixins": [
+		"assemble.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21.4",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.youtube": "https://youtube.com/@AcoYTagain",
+				"modmenu.modrinth": "https://modrinth.com/user/AcoYT"
+			}
+		}
+	}
+}

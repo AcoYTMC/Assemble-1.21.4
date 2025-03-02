@@ -1,0 +1,6 @@
+{
+	"parent": "assemble:block/seat",
+	"textures": {
+		"0": "assemble:block/black_seat"
+	}
+}
