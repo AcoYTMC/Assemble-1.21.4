@@ -50,7 +50,7 @@ public abstract class ModMenuMixin {
             // Modify the text rendering with a new color
             drawContext.drawText(this.client.textRenderer, Language.getInstance().reorder(trimmedName), x + iconSize + 3, y + 1, nameColor, true);
 
-            drawContext.drawTexture(RenderLayer::getGuiTexturedOverlay, Assemble.id("acorn.png"), x + iconSize + 85, y - 3, 0, 0, 16, 16, 16, 16);
+            drawContext.drawTexture(RenderLayer::getGuiTexturedOverlay, Assemble.id("hammer.png"), x + iconSize + 50, y - 1, 0, 0, 12, 12, 12, 12);
         }
     }
 }

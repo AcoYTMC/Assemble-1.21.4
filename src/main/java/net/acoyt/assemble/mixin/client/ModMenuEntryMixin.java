@@ -46,7 +46,7 @@ public abstract class ModMenuEntryMixin extends Screen {
 
             if ("assemble".equals(mod.getId())) {
                 context.drawText(this.textRenderer, Language.getInstance().reorder(trimmedName), this.rightPaneX + imageOffset, 49, nameColor, true);
-                context.drawTexture(RenderLayer::getGuiTexturedOverlay, Assemble.id("acorn.png"), this.rightPaneX + imageOffset + 82, 45, 0, 0, 16, 16, 16, 16);
+                context.drawTexture(RenderLayer::getGuiTexturedOverlay, Assemble.id("hammer.png"), this.rightPaneX + imageOffset + 47, 45, 0, 0, 13, 13, 13, 13);
             }
         }
     }
