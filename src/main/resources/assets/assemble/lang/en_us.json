@@ -20,5 +20,7 @@
   "block.assemble.magenta_seat": "Magenta Seat",
   "block.assemble.pink_seat": "Pink Seat",
 
-  "block.assemble.copper_glass": "Copper Glass"
+  "block.assemble.copper_glass": "Copper Glass",
+
+  "item.assemble.hammer": "Hammer"
 }

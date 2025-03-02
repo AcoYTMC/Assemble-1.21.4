@@ -1,10 +1,13 @@
 {
-	"required": true,
-	"package": "net.acoyt.assemble.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [],
-	"client": [],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "net.acoyt.assemble.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [],
+  "client": [
+    "client.ModMenuEntryMixin",
+    "client.ModMenuMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }
