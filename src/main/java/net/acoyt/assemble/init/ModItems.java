@@ -15,7 +15,7 @@ import java.util.Map;
 @SuppressWarnings("unchecked")
 public interface ModItems {
     Map<Item, Identifier> ITEMS = new LinkedHashMap();
-    Item AQUARIUM_GLASS = createItem("aquarium_glass", new BlockItem(ModBlocks.COPPER_GLASS, new Item.Settings().translationKey(ModBlocks.COPPER_GLASS.getTranslationKey()).registryKey(keyOf("aquarium_glass"))));
+    Item COPPER_GLASS = createItem("copper_glass", new BlockItem(ModBlocks.COPPER_GLASS, new Item.Settings().translationKey(ModBlocks.COPPER_GLASS.getTranslationKey()).registryKey(keyOf("copper_glass"))));
 
     static RegistryKey<Item> keyOf(String id) {
         return RegistryKey.of(RegistryKeys.ITEM, Assemble.id(id));

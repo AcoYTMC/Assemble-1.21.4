@@ -55,7 +55,7 @@ public class CopperGlass extends TransparentBlock {
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (context.isHolding(ModItems.AQUARIUM_GLASS)) {
+        if (context.isHolding(ModItems.COPPER_GLASS)) {
             switch ((Direction) state.get(FACING)) {
                 case NORTH:
                 default:
