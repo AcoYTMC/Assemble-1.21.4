@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WS",
+    "SW"
+  ],
+  "key": {
+    "W": "minecraft:copper_ingot",
+    "S": "minecraft:glass_pane"
+  },
+  "result": {
+    "id": "assemble:copper_glass",
+    "count": 4
+  }
+}

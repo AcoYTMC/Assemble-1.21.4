@@ -22,5 +22,11 @@
 
   "block.assemble.copper_glass": "Copper Glass",
 
-  "item.assemble.hammer": "Hammer"
+  "item.assemble.hammer": "Hammer",
+
+  "item.assemble.fried_chicken": "Fried Chicken",
+  "block.assemble.chicken_bucket": "Kentucky Fried Chicken",
+  "block.assemble.chicken_bucket.desc": "It's Finger Lickin' Good!",
+
+  "block.assemble.flowering_vine": "Flowering Vines"
 }

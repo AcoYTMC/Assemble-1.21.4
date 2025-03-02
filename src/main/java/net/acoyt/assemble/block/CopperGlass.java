@@ -1,12 +1,12 @@
 package net.acoyt.assemble.block;
 
 import net.acoyt.assemble.init.ModItems;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.block.TransparentBlock;
+import net.minecraft.block.*;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.state.property.Property;
@@ -18,8 +18,10 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import org.jetbrains.annotations.NotNull;
 
-public class CopperGlass extends TransparentBlock {
+public class CopperGlass extends TransparentBlock implements Waterloggable {
+    public static final BooleanProperty WATERLOGGED;
     public static final EnumProperty<Direction> FACING;
+
     private static final VoxelShape NORTH_SHAPE;
     private static final VoxelShape EAST_SHAPE;
     private static final VoxelShape SOUTH_SHAPE;
@@ -39,7 +41,8 @@ public class CopperGlass extends TransparentBlock {
     }
 
     public BlockState getPlacementState(@NotNull ItemPlacementContext ctx) {
-        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
+        FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite()).with(WATERLOGGED, fluidState.isOf(Fluids.WATER));
     }
 
     public BlockState rotate(BlockState state, BlockRotation rotation) {
@@ -51,7 +54,7 @@ public class CopperGlass extends TransparentBlock {
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(new Property[]{FACING});
+        builder.add(new Property[]{FACING, WATERLOGGED});
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -82,17 +85,17 @@ public class CopperGlass extends TransparentBlock {
         }
     }
 
+    @Override
     public boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction direction) {
-        if (stateFrom.isOf(this)) {
-            if (!direction.getAxis().isHorizontal()) {
-                return true;
-            }
-        }
+        return stateFrom.isOf(this) || super.isSideInvisible(state, stateFrom, direction);
+    }
 
-        return super.isSideInvisible(state, stateFrom, direction);
+    public FluidState getFluidState(BlockState state) {
+        return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
     }
 
     static {
+        WATERLOGGED = Properties.WATERLOGGED;
         FACING = Properties.HORIZONTAL_FACING;
         NORTH_SHAPE = Block.createCuboidShape(0.0F, 0.0F, 13.0F, 16.0F, 16.0F, 16.0F);
         EAST_SHAPE = Block.createCuboidShape(0.0F, 0.0F, 0.0F, 3.0F, 16.0F, 16.0F);

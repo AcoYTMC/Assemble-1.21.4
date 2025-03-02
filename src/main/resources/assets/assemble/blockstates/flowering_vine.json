@@ -1,0 +1,304 @@
+{
+  "multipart": [
+    {
+      "apply": [{
+        "model": "assemble:block/vine"
+      },
+	  {
+        "model": "assemble:block/vine_1"
+      },
+	  {
+        "model": "assemble:block/vine_2"
+      },
+	  {
+        "model": "assemble:block/vine_3"
+      },
+	  {
+        "model": "assemble:block/vine_4"
+      }],
+      "when": {
+        "north": "true"
+      }
+    },
+    {
+      "apply": [{
+        "model": "assemble:block/vine"
+      },
+	  {
+        "model": "assemble:block/vine_1"
+      },
+	  {
+        "model": "assemble:block/vine_2"
+      },
+	  {
+        "model": "assemble:block/vine_3"
+      },
+	  {
+        "model": "assemble:block/vine_4"
+      }],
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
+    },
+    {
+      "apply": [{
+        "model": "assemble:block/vine",
+        "uvlock": true,
+        "y": 90
+      },
+	  {
+        "model": "assemble:block/vine_1",
+        "uvlock": true,
+        "y": 90
+      },
+	  {
+        "model": "assemble:block/vine_2",
+        "uvlock": true,
+        "y": 90
+      },
+	   {
+        "model": "assemble:block/vine_3",
+        "uvlock": true,
+        "y": 90
+      },
+	   {
+        "model": "assemble:block/vine_4",
+        "uvlock": true,
+        "y": 90
+      }],
+      "when": {
+        "east": "true"
+      }
+    },
+    {
+      "apply": [{
+        "model": "assemble:block/vine",
+        "uvlock": true,
+        "y": 90
+      },
+	  {
+        "model": "assemble:block/vine_1",
+        "uvlock": true,
+        "y": 90
+      },
+	  {
+        "model": "assemble:block/vine_2",
+        "uvlock": true,
+        "y": 90
+      },
+	  {
+        "model": "assemble:block/vine_3",
+        "uvlock": true,
+        "y": 90
+      },
+	  {
+        "model": "assemble:block/vine_4",
+        "uvlock": true,
+        "y": 90
+      }],
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
+    },
+    {
+      "apply": [{
+        "model": "assemble:block/vine",
+        "uvlock": true,
+        "y": 180
+      },
+	  {
+        "model": "assemble:block/vine_1",
+        "uvlock": true,
+        "y": 180
+      },
+	  {
+        "model": "assemble:block/vine_2",
+        "uvlock": true,
+        "y": 180
+      },
+	  {
+        "model": "assemble:block/vine_3",
+        "uvlock": true,
+        "y": 180
+      },
+	  {
+        "model": "assemble:block/vine_4",
+        "uvlock": true,
+        "y": 180
+      }],
+      "when": {
+        "south": "true"
+      }
+    },
+    {
+      "apply": [{
+        "model": "assemble:block/vine",
+        "uvlock": true,
+        "y": 180
+      },
+	  {
+        "model": "assemble:block/vine_1",
+        "uvlock": true,
+        "y": 180
+      },
+	  {
+        "model": "assemble:block/vine_2",
+        "uvlock": true,
+        "y": 180
+      },
+	  {
+        "model": "assemble:block/vine_3",
+        "uvlock": true,
+        "y": 180
+      },
+	  {
+        "model": "assemble:block/vine_4",
+        "uvlock": true,
+        "y": 180
+      }],
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
+    },
+    {
+      "apply": [{
+        "model": "assemble:block/vine",
+        "uvlock": true,
+        "y": 270
+      },
+	  {
+        "model": "assemble:block/vine_1",
+        "uvlock": true,
+        "y": 270
+      },
+	  {
+        "model": "assemble:block/vine_2",
+        "uvlock": true,
+        "y": 270
+      },
+	  {
+        "model": "assemble:block/vine_3",
+        "uvlock": true,
+        "y": 270
+      },
+	  {
+        "model": "assemble:block/vine_4",
+        "uvlock": true,
+        "y": 270
+      }],
+      "when": {
+        "west": "true"
+      }
+    },
+    {
+      "apply": [{
+        "model": "assemble:block/vine",
+        "uvlock": true,
+        "y": 270
+      },
+	  {
+        "model": "assemble:block/vine_1",
+        "uvlock": true,
+        "y": 270
+      },
+	  {
+        "model": "assemble:block/vine_2",
+        "uvlock": true,
+        "y": 270
+      },
+	  {
+        "model": "assemble:block/vine_3",
+        "uvlock": true,
+        "y": 270
+      },
+	  {
+        "model": "assemble:block/vine_4",
+        "uvlock": true,
+        "y": 270
+      }],
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
+    },
+    {
+      "apply": [{
+        "model": "assemble:block/vine",
+        "uvlock": true,
+        "x": 270
+      },
+	  {
+        "model": "assemble:block/vine_1",
+        "uvlock": true,
+        "x": 270
+      },
+	  {
+        "model": "assemble:block/vine_2",
+        "uvlock": true,
+        "x": 270
+      },
+	  {
+        "model": "assemble:block/vine_3",
+        "uvlock": true,
+        "x": 270
+      },
+	  {
+        "model": "assemble:block/vine_4",
+        "uvlock": true,
+        "x": 270
+      }],
+      "when": {
+        "up": "true"
+      }
+    },
+    {
+      "apply": [{
+        "model": "assemble:block/vine",
+        "uvlock": true,
+        "x": 270
+      },
+	  {
+        "model": "assemble:block/vine_1",
+        "uvlock": true,
+        "x": 270
+      },
+	  {
+        "model": "assemble:block/vine_2",
+        "uvlock": true,
+        "x": 270
+      },
+	  {
+        "model": "assemble:block/vine_3",
+        "uvlock": true,
+        "x": 270
+      },
+	  {
+        "model": "assemble:block/vine_4",
+        "uvlock": true,
+        "x": 270
+      }],
+      "when": {
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      }
+    }
+  ]
+}

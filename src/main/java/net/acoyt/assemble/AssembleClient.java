@@ -11,7 +11,10 @@ import net.minecraft.client.render.entity.EmptyEntityRenderer;
 
 public class AssembleClient implements ClientModInitializer {
     public void onInitializeClient() {
-        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), new Block[]{ModBlocks.COPPER_GLASS});
         EntityRendererRegistry.register(ModEntities.SEAT, EmptyEntityRenderer::new);
+
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), new Block[]{ModBlocks.CHICKEN_BUCKET, ModBlocks.FLOWERING_VINE});
+
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(), ModBlocks.COPPER_GLASS);
     }
 }

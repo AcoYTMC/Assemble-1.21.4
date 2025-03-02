@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "trident"
+		"0": "assemble:item/hammer"
 	},
 	"elements": [
 		{
@@ -498,21 +498,24 @@
 	],
 	"display": {
 		"thirdperson_righthand": {
-			"translation": [0, -1, 0]
+			"translation": [0, -1, 0],
+			"scale": [0.9, 0.9, 0.9]
 		},
 		"thirdperson_lefthand": {
-			"translation": [0, -1, 0]
+			"translation": [0, -1, 0],
+			"scale": [0.9, 0.9, 0.9]
 		},
 		"firstperson_righthand": {
-			"translation": [1.13, 3.2, 1.13],
+			"translation": [1.13, 2, 2.13],
 			"scale": [0.68, 0.68, 0.68]
 		},
 		"firstperson_lefthand": {
-			"translation": [1.13, 3.2, 1.13],
+			"translation": [1.13, 2, 2.13],
 			"scale": [0.68, 0.68, 0.68]
 		},
 		"gui": {
 			"rotation": [30, 225, 0],
+			"translation": [0, -2, 0],
 			"scale": [0.625, 0.625, 0.625]
 		},
 		"head": {

@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "assemble:block/chicken_bucket",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "assemble:block/chicken_bucket",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "assemble:block/chicken_bucket",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "assemble:block/chicken_bucket",
+      "y": 270
+    }
+  }
+}

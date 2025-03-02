@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CC",
+    "RW"
+  ],
+  "key": {
+    "C": "minecraft:cooked_chicken",
+    "R": "minecraft:red_wool",
+    "W": "minecraft:white_wool"
+  },
+  "result": {
+    "id": "assemble:chicken_bucket"
+  }
+}
