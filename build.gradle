@@ -3,11 +3,11 @@ plugins {
 	id 'maven-publish'
 }
 
-version = mod_version
-group = maven_group
+version = project.mod_version
+group = project.maven_group
 
 base {
-	archivesName = archives_base_name
+	archivesName = project.archives_base_name
 }
 
 repositories {
@@ -25,20 +25,23 @@ repositories {
 
 dependencies {
 	// To change the versions see the gradle.properties file
-	minecraft "com.mojang:minecraft:${minecraft_version}"
-	mappings "net.fabricmc:yarn:${yarn_mappings}:v2"
-	modImplementation "net.fabricmc:fabric-loader:${loader_version}"
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+	// Acorn Lib
+	modImplementation "maven.modrinth:acorn-lib:${project.acornlib_version}"
 
 	// Config
-	modImplementation "maven.modrinth:midnightlib:${midnightlib_version}+${minecraft_version}-fabric"
-	modApi "com.terraformersmc:modmenu:${mod_menu_version}"
+	modImplementation "maven.modrinth:midnightlib:${project.midnightlib_version}+${project.minecraft_version}-fabric"
+	modApi "com.terraformersmc:modmenu:${project.mod_menu_version}"
 }
 
 processResources {
-	inputs.property "version", version
+	inputs.property "version", project.version
 
 	filesMatching("fabric.mod.json") {
 		expand "version": inputs.properties.version
@@ -60,7 +63,7 @@ java {
 }
 
 jar {
-	inputs.property "archivesName", base.archivesName
+	inputs.property "archivesName", project.base.archivesName
 
 	from("LICENSE") {
 		rename { "${it}_${inputs.properties.archivesName}"}
@@ -71,7 +74,7 @@ jar {
 publishing {
 	publications {
 		create("mavenJava", MavenPublication) {
-			artifactId = archives_base_name
+			artifactId = project.archives_base_name
 			from components.java
 		}
 	}

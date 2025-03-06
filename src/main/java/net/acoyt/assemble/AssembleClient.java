@@ -13,7 +13,7 @@ public class AssembleClient implements ClientModInitializer {
     public void onInitializeClient() {
         EntityRendererRegistry.register(ModEntities.SEAT, EmptyEntityRenderer::new);
 
-        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), new Block[]{ModBlocks.CHICKEN_BUCKET, ModBlocks.FLOWERING_VINE});
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), new Block[]{ModBlocks.CHICKEN_BUCKET, ModBlocks.FLOWERING_VINE, ModBlocks.LEGAL_BRICK});
 
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(), ModBlocks.COPPER_GLASS);
     }

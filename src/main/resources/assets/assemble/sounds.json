@@ -1,0 +1,11 @@
+{
+  "block.legal.true_pain": {
+    "sounds": [
+      {
+        "name": "mob/goat/screaming_pre_ram2",
+        "volume": 0.8
+      }
+    ],
+    "subtitle": "subtitles.block.legal.true_pain"
+  }
+}

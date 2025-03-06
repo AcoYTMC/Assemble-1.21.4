@@ -3,6 +3,7 @@ package net.acoyt.assemble.init;
 import net.acoyt.assemble.Assemble;
 import net.acoyt.assemble.block.ChickenBucket;
 import net.acoyt.assemble.block.CopperGlass;
+import net.acoyt.assemble.block.LegalBrick;
 import net.acoyt.assemble.block.SeatBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
@@ -39,7 +40,11 @@ public interface ModBlocks {
     // Chicken Bucket
     Block CHICKEN_BUCKET = createBlock("chicken_bucket", new ChickenBucket(AbstractBlock.Settings.copy(Blocks.RED_WOOL).nonOpaque().registryKey(keyOf("chicken_bucket"))), true);
 
+    // Flowering Vine
     Block FLOWERING_VINE = createBlock("flowering_vine", new VineBlock(AbstractBlock.Settings.copy(Blocks.VINE).nonOpaque().registryKey(keyOf("flowering_vine"))), true);
+
+    // Legally Distinct Brick
+    Block LEGAL_BRICK = createBlock("legal_brick", new LegalBrick(AbstractBlock.Settings.copy(Blocks.BRICKS).nonOpaque().registryKey(keyOf("legal_brick"))), false);
 
     private static RegistryKey<Block> keyOf(String id) {
         return RegistryKey.of(RegistryKeys.BLOCK, Assemble.id(id));

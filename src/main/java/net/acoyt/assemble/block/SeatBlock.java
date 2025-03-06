@@ -2,7 +2,6 @@ package net.acoyt.assemble.block;
 
 import net.acoyt.assemble.entity.SeatEntity;
 import net.acoyt.assemble.init.ModEntities;
-import net.minecraft.block.BedBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;

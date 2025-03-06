@@ -28,5 +28,8 @@
   "block.assemble.chicken_bucket": "Kentucky Fried Chicken",
   "block.assemble.chicken_bucket.desc": "It's Finger Lickin' Good!",
 
-  "block.assemble.flowering_vine": "Flowering Vines"
+  "block.assemble.flowering_vine": "Flowering Vines",
+
+  "block.assemble.legal_brick": "Legal Bricks",
+  "subtitles.block.legal.true_pain": "True Pain"
 }

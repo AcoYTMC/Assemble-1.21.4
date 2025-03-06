@@ -26,6 +26,7 @@ public interface ModItems {
     Map<Item, Identifier> ITEMS = new LinkedHashMap();
     // BlockItems
     Item COPPER_GLASS = createItem("copper_glass", new BlockItem(ModBlocks.COPPER_GLASS, new Item.Settings().translationKey(ModBlocks.COPPER_GLASS.getTranslationKey()).registryKey(keyOf("copper_glass"))));
+    Item LEGAL_BRICK = createItem("legal_brick", new BlockItem(ModBlocks.LEGAL_BRICK, new Item.Settings().translationKey(ModBlocks.LEGAL_BRICK.getTranslationKey()).registryKey(keyOf("legal_brick"))));
 
     // Other
     Item HAMMER = createItem("hammer", new HammerItem(new Item.Settings().attributeModifiers(HammerItem.createAttributeModifiers()).registryKey(keyOf("hammer"))));

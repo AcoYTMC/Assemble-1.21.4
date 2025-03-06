@@ -4,7 +4,9 @@ import net.acoyt.assemble.init.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.TntEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EnderChestInventory;
 import net.minecraft.item.Item;
@@ -54,6 +56,9 @@ public class ChickenBucket extends Block {
             }
             chimken = chimken + 0.5f;
             return ActionResult.SUCCESS;
+        } else if (stack.isOf(Items.AMETHYST_SHARD)) {
+            world.spawnEntity(new TntEntity(world, pos.getX(), pos.getY(), pos.getZ(), player));
+            return ActionResult.PASS;
         } else if (stack.isEmpty() && player.isSneaking()) {
             player.sendMessage(Text.literal("There are " + chimken + " Friend Chicken pieces left."), true);
             return ActionResult.PASS;
