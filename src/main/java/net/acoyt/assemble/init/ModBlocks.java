@@ -80,6 +80,27 @@ public interface ModBlocks {
             );
         });
 
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register((entries) -> {
+            entries.addAfter(Blocks. PINK_BED,
+                    WHITE_SEAT,
+                    LIGHT_GRAY_SEAT,
+                    GRAY_SEAT,
+                    BLACK_SEAT,
+                    BROWN_SEAT,
+                    RED_SEAT,
+                    ORANGE_SEAT,
+                    YELLOW_SEAT,
+                    LIME_SEAT,
+                    GREEN_SEAT,
+                    CYAN_SEAT,
+                    LIGHT_BLUE_SEAT,
+                    BLUE_SEAT,
+                    PURPLE_SEAT,
+                    MAGENTA_SEAT,
+                    PINK_SEAT
+            );
+        });
+
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register((entries) -> {
             entries.add(COPPER_GLASS);
         });

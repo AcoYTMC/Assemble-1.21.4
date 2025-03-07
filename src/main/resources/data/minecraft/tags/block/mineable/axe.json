@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#assemble:seats",
+      "required": false
+    }
+  ]
+}

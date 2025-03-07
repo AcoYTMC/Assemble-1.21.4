@@ -1,0 +1,20 @@
+{
+  "values": [
+    "assemble:white_seat",
+    "assemble:light_gray_seat",
+    "assemble:gray_seat",
+    "assemble:black_seat",
+    "assemble:brown_seat",
+    "assemble:red_seat",
+    "assemble:orange_seat",
+    "assemble:yellow_seat",
+    "assemble:lime_seat",
+    "assemble:green_seat",
+    "assemble:cyan_seat",
+    "assemble:light_blue_seat",
+    "assemble:blue_seat",
+    "assemble:purple_seat",
+    "assemble:magenta_seat",
+    "assemble:pink_seat"
+  ]
+}

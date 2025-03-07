@@ -7,5 +7,43 @@
       }
     ],
     "subtitle": "subtitles.block.legal.true_pain"
+  },
+
+  "item.hammer.bonk": {
+    "sounds": [
+      {
+        "name": "assemble:item/bonk",
+        "volume": 1.1
+      }
+    ],
+    "subtitle": "subtitles.item.hammer.bonk"
+  },
+
+  "block.legal.eat_legal": {
+    "sounds": [
+      {
+        "name": "assemble:legal/eat_legal",
+        "volume": 1.1
+      }
+    ],
+    "subtitle": "subtitles.block.legal.eat_legal"
+  },
+  "block.legal.legal_death": {
+    "sounds": [
+      {
+        "name": "assemble:legal/legal_death",
+        "volume": 1.1
+      }
+    ],
+    "subtitle": "subtitles.block.legal.legal_death"
+  },
+  "block.legal.place_legal": {
+    "sounds": [
+      {
+        "name": "assemble:legal/place_legal",
+        "volume": 1.1
+      }
+    ],
+    "subtitle": "subtitles.block.legal.place_legal"
   }
 }

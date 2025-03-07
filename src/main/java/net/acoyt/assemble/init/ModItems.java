@@ -26,7 +26,7 @@ public interface ModItems {
     Map<Item, Identifier> ITEMS = new LinkedHashMap();
     // BlockItems
     Item COPPER_GLASS = createItem("copper_glass", new BlockItem(ModBlocks.COPPER_GLASS, new Item.Settings().translationKey(ModBlocks.COPPER_GLASS.getTranslationKey()).registryKey(keyOf("copper_glass"))));
-    Item LEGAL_BRICK = createItem("legal_brick", new BlockItem(ModBlocks.LEGAL_BRICK, new Item.Settings().translationKey(ModBlocks.LEGAL_BRICK.getTranslationKey()).registryKey(keyOf("legal_brick"))));
+    Item LEGAL_BRICK = createItem("legal_brick", new BlockItem(ModBlocks.LEGAL_BRICK, new Item.Settings().translationKey(ModBlocks.LEGAL_BRICK.getTranslationKey()).food(new FoodComponent(0, 20.0f, true), ModConsumables.LEGAL_BRICK).registryKey(keyOf("legal_brick"))));
 
     // Other
     Item HAMMER = createItem("hammer", new HammerItem(new Item.Settings().attributeModifiers(HammerItem.createAttributeModifiers()).registryKey(keyOf("hammer"))));
@@ -53,6 +53,10 @@ public interface ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register((entries) -> {
             entries.addAfter(Items.COOKED_CHICKEN, FRIED_CHICKEN);
             entries.addAfter(FRIED_CHICKEN, ModBlocks.CHICKEN_BUCKET);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.OPERATOR).register((entries) -> {
+            entries.add(LEGAL_BRICK);
         });
     }
 }

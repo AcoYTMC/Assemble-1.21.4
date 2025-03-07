@@ -1,7 +1,6 @@
 {
   "assemble.midnightconfig.title": "Assemble Config",
-  "assemble.midnightconfig.seats": "-Seats-",
-  "assemble.midnightconfig.seatReach": "Seat Reach",
+  "assemble.midnightconfig.brickDamageMultiplier": "Legal Brick Damage Multiplier",
 
   "block.assemble.white_seat": "White Seat",
   "block.assemble.light_gray_seat": "Light Gray Seat",
@@ -23,6 +22,7 @@
   "block.assemble.copper_glass": "Copper Glass",
 
   "item.assemble.hammer": "Hammer",
+  "item.assemble.hammer.desc": "§8A powerful tool for building.",
 
   "item.assemble.fried_chicken": "Fried Chicken",
   "block.assemble.chicken_bucket": "Kentucky Fried Chicken",
@@ -31,5 +31,14 @@
   "block.assemble.flowering_vine": "Flowering Vines",
 
   "block.assemble.legal_brick": "Legal Bricks",
-  "subtitles.block.legal.true_pain": "True Pain"
+  "subtitles.block.legal.true_pain": "True Pain",
+
+  "death.attack.true_pain": "%1$s felt true pain",
+  "death.attack.true_pain.player": "%1$s felt true pain because of %2$s",
+
+  "subtitles.item.hammer.bonk": "Hammer Hits",
+
+  "subtitles.block.legal.eat_legal": "OM NOM NOM",
+  "subtitles.block.legal.legal_death": "OOF",
+  "subtitles.block.legal.place_legal": "*Building Sounds*"
 }

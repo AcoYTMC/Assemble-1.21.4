@@ -2,7 +2,9 @@
   "required": true,
   "package": "net.acoyt.assemble.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [],
+  "mixins": [
+    "PlayerEntityMixin"
+  ],
   "client": [
     "client.ModMenuEntryMixin",
     "client.ModMenuMixin"

@@ -4,10 +4,14 @@ import eu.midnightdust.lib.config.MidnightConfig;
 
 public class AssembleConfig extends MidnightConfig {
     /* TECHNICAL CATEGORY */
-    //public static final String technical = "technical";
+    public static final String technical = "technical";
 
-    //@Comment(category = technical, centered = true)
-    //public static Comment seats;
-    //@Entry(category = technical, min = 0, max = 1000)
-    //public static int seatReach = 4;
+    @Entry(category = technical, min = 1, max = 1000)
+    public static float brickDamageMultiplier = 1.5f;
+
+    public static int encode() {
+        StringBuilder builder = new StringBuilder();
+        String encoding = builder.toString() + brickDamageMultiplier;
+        return encoding.hashCode();
+    }
 }
