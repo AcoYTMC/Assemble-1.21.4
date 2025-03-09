@@ -5,11 +5,14 @@ import net.acoyt.assemble.init.ModEntities;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.block.Waterloggable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -21,7 +24,8 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class SeatBlock extends Block {
+public class SeatBlock extends Block implements Waterloggable {
+    public static final BooleanProperty WATERLOGGED;
     private static final VoxelShape SHAPE;
 
     public SeatBlock(Settings settings) {
@@ -70,6 +74,7 @@ public class SeatBlock extends Block {
     }
 
     static {
+        WATERLOGGED = Properties.WATERLOGGED;
         SHAPE = createCuboidShape(0.0F, 0.0F, 0.0F, 16.0F, 8.0F, 16.0F);
     }
 }

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MHM",
+    " S ",
+    " S "
+  ],
+  "key": {
+    "S": "minecraft:stick",
+    "M": "minecraft:smooth_stone",
+    "H": "minecraft:iron_block"
+  },
+  "result": {
+    "id": "assemble:hammer"
+  }
+}

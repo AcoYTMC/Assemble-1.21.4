@@ -55,7 +55,7 @@ public class LegalBrick extends Block {
     }
 
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
-        world.playSound((PlayerEntity)null, pos, net.acoyt.assemble.init.ModSoundEvents.PLACE_LEGAL, SoundCategory.PLAYERS);
+        world.playSound((PlayerEntity)null, pos, ModSoundEvents.PLACE_LEGAL, SoundCategory.BLOCKS);
     }
 
     protected boolean isTransparent(BlockState state) {

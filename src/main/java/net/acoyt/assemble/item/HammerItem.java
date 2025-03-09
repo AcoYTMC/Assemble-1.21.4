@@ -1,24 +1,25 @@
 package net.acoyt.assemble.item;
 
+import net.acoyt.acornlib.item.CustomHitSoundItem;
 import net.acoyt.assemble.Assemble;
+import net.acoyt.assemble.init.ModSoundEvents;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.MiningToolItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
 import java.util.List;
 
-import static net.minecraft.util.Formatting.*;
-
-public class HammerItem extends MiningToolItem {
+public class HammerItem extends MiningToolItem implements CustomHitSoundItem {
     public static final Identifier BASE_ENTITY_REACH_MODIFIER_ID;
 
     public HammerItem(Settings settings) {
@@ -39,5 +40,9 @@ public class HammerItem extends MiningToolItem {
 
     static {
         BASE_ENTITY_REACH_MODIFIER_ID = Assemble.id("base_entity_interaction_range");
+    }
+
+    public void playHitSound(PlayerEntity player) {
+        player.getWorld().playSound((PlayerEntity)null, player.getPos().getX(), player.getPos().getY(), player.getPos().getZ(), ModSoundEvents.BONK, SoundCategory.PLAYERS, 2.0F, (float)((double)1.0F + player.getRandom().nextGaussian() / (double)10.0F));
     }
 }
