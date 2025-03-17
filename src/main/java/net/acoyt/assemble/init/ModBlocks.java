@@ -79,7 +79,7 @@ public interface ModBlocks {
 
     static void init() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register((entries) -> {
-            entries.addAfter(Blocks. PINK_BED,
+            entries.addAfter(Blocks.PINK_BED,
                     WHITE_SEAT,
                     LIGHT_GRAY_SEAT,
                     GRAY_SEAT,
@@ -96,6 +96,25 @@ public interface ModBlocks {
                     PURPLE_SEAT,
                     MAGENTA_SEAT,
                     PINK_SEAT
+            );
+
+            entries.addAfter(Blocks.PINK_WOOL,
+                    WHITE_SHAG_BLOCK,
+                    LIGHT_GRAY_SHAG_BLOCK,
+                    GRAY_SHAG_BLOCK,
+                    BLACK_SHAG_BLOCK,
+                    BROWN_SHAG_BLOCK,
+                    RED_SHAG_BLOCK,
+                    ORANGE_SHAG_BLOCK,
+                    YELLOW_SHAG_BLOCK,
+                    LIME_SHAG_BLOCK,
+                    GREEN_SHAG_BLOCK,
+                    CYAN_SHAG_BLOCK,
+                    LIGHT_BLUE_SHAG_BLOCK,
+                    BLUE_SHAG_BLOCK,
+                    PURPLE_SHAG_BLOCK,
+                    MAGENTA_SHAG_BLOCK,
+                    PINK_SHAG_BLOCK
             );
         });
 

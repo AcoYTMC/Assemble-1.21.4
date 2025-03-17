@@ -66,6 +66,12 @@ public class Assemble implements ModInitializer {
 				(builder, item) -> builder.add(DataComponentTypes.ITEM_NAME, Text.translatable(item.getTranslationKey()).withColor(0xE1B7C1))
 		));
 
+		// Chicken Chow-mein with a side of rice
+		DefaultItemComponentEvents.MODIFY.register(ctx -> ctx.modify(
+				Predicate.isEqual(ModItems.CLEAVING_SCISSORS),
+				(builder, item) -> builder.add(DataComponentTypes.ENCHANTMENTS, null)
+		));
+
 		// Enforce Configuration Match
 		PayloadTypeRegistry.playS2C().register(EnforceConfigMatchPayload.ID, EnforceConfigMatchPayload.CODEC);
 

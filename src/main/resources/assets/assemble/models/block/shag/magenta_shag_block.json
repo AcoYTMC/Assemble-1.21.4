@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "assemble:block/shag/magenta_shag_block"
+  }
+}
