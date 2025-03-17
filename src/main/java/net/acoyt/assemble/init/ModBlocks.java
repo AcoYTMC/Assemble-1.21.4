@@ -35,7 +35,7 @@ public interface ModBlocks {
     Block PINK_SEAT = createBlock("pink_seat", new SeatBlock(AbstractBlock.Settings.copy(Blocks.SPRUCE_PLANKS).mapColor(MapColor.DULL_PINK).registryKey(keyOf("pink_seat"))), true);
 
     // Copper Glass
-    Block COPPER_GLASS = createBlock("copper_glass", new CopperGlass(AbstractBlock.Settings.copy(Blocks.GLASS).nonOpaque().registryKey(keyOf("copper_glass"))), false);
+    Block COPPER_GLASS = createBlock("copper_glass", new CopperGlass(AbstractBlock.Settings.copy(Blocks.GLASS).nonOpaque().registryKey(keyOf("copper_glass"))), true);
 
     // Chicken Bucket
     Block CHICKEN_BUCKET = createBlock("chicken_bucket", new ChickenBucket(AbstractBlock.Settings.copy(Blocks.RED_WOOL).nonOpaque().registryKey(keyOf("chicken_bucket"))), true);
@@ -44,7 +44,7 @@ public interface ModBlocks {
     Block FLOWERING_VINE = createBlock("flowering_vine", new VineBlock(AbstractBlock.Settings.copy(Blocks.VINE).nonOpaque().registryKey(keyOf("flowering_vine"))), true);
 
     // Legally Distinct Brick
-    Block LEGAL_BRICK = createBlock("legal_brick", new LegalBrick(AbstractBlock.Settings.copy(Blocks.BRICKS).nonOpaque().registryKey(keyOf("legal_brick"))), false);
+    Block LEGAL_BRICK = createBlock("legal_brick", new LegalBrick(AbstractBlock.Settings.copy(Blocks.BRICKS).nonOpaque().registryKey(keyOf("legal_brick"))), true);
 
     private static RegistryKey<Block> keyOf(String id) {
         return RegistryKey.of(RegistryKeys.BLOCK, Assemble.id(id));
@@ -107,6 +107,10 @@ public interface ModBlocks {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register((entries) -> {
             entries.addAfter(Blocks.VINE, FLOWERING_VINE);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.OPERATOR).register((entries) -> {
+            entries.add(LEGAL_BRICK);
         });
     }
 }

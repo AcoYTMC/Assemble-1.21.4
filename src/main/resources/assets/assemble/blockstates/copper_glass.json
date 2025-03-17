@@ -15,6 +15,14 @@
     "facing=east": {
       "model": "assemble:block/copper_glass",
       "y": 270
+    },
+    "facing=up": {
+      "model": "assemble:block/copper_glass",
+      "x": 90
+    },
+    "facing=down": {
+      "model": "assemble:block/copper_glass",
+      "x": -90
     }
   }
 }

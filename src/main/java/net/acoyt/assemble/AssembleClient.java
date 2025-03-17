@@ -20,7 +20,7 @@ public class AssembleClient implements ClientModInitializer {
 
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), new Block[]{ModBlocks.CHICKEN_BUCKET, ModBlocks.FLOWERING_VINE, ModBlocks.LEGAL_BRICK});
 
-        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(), ModBlocks.COPPER_GLASS);
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(), new Block[]{ModBlocks.COPPER_GLASS});
 
         // Enforce Configuration Match
         ClientPlayNetworking.registerGlobalReceiver(EnforceConfigMatchPayload.ID, new EnforceConfigMatchPayload.Receiver());

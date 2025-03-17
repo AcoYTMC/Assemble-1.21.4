@@ -1,6 +1,7 @@
 package net.acoyt.assemble.block;
 
 import net.acoyt.assemble.AssembleConfig;
+import net.acoyt.assemble.init.ModBlocks;
 import net.acoyt.assemble.init.ModDamageSources;
 import net.acoyt.assemble.init.ModItems;
 import net.acoyt.assemble.init.ModSoundEvents;
@@ -63,11 +64,11 @@ public class LegalBrick extends Block {
     }
 
     protected ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state, boolean includeData) {
-        return new ItemStack(ModItems.LEGAL_BRICK);
+        return new ItemStack(ModBlocks.LEGAL_BRICK.asItem());
     }
 
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (context.isHolding(ModItems.LEGAL_BRICK)) {
+        if (context.isHolding(this.asItem())) {
             return LARGE_SHAPE;
         } else {
             return SMALL_SHAPE;

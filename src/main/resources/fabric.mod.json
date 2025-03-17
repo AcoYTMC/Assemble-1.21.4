@@ -7,7 +7,7 @@
 	"authors": [
 		"AcoYT"
 	],
-	"license": "ARR",
+	"license": "AcoYT License",
 	"icon": "assets/assemble/icon.png",
 	"environment": "*",
 	"entrypoints": {

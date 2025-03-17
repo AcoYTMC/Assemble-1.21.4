@@ -1,7 +1,10 @@
 package net.acoyt.assemble.block;
 
-import net.acoyt.assemble.init.ModItems;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.ShapeContext;
+import net.minecraft.block.Waterloggable;
+import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
@@ -10,101 +13,140 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.state.property.Property;
-import net.minecraft.util.BlockMirror;
-import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
-import org.jetbrains.annotations.NotNull;
+import net.minecraft.world.WorldAccess;
+import org.jetbrains.annotations.Nullable;
 
-public class CopperGlass extends TransparentBlock implements Waterloggable {
+public class CopperGlass extends Block implements Waterloggable {
     public static final BooleanProperty WATERLOGGED;
     public static final EnumProperty<Direction> FACING;
 
-    private static final VoxelShape NORTH_SHAPE;
-    private static final VoxelShape EAST_SHAPE;
-    private static final VoxelShape SOUTH_SHAPE;
-    private static final VoxelShape WEST_SHAPE;
-
-    private static final VoxelShape MORE_NORTH_SHAPE;
-    private static final VoxelShape MORE_EAST_SHAPE;
-    private static final VoxelShape MORE_SOUTH_SHAPE;
-    private static final VoxelShape MORE_WEST_SHAPE;
+    public static final VoxelShape NORTH_SHAPE;
+    public static final VoxelShape NORTH_COLLISION_SHAPE;
+    public static final VoxelShape EAST_SHAPE;
+    public static final VoxelShape EAST_COLLISION_SHAPE;
+    public static final VoxelShape SOUTH_SHAPE;
+    public static final VoxelShape SOUTH_COLLISION_SHAPE;
+    public static final VoxelShape WEST_SHAPE;
+    public static final VoxelShape WEST_COLLISION_SHAPE;
+    public static final VoxelShape UP_SHAPE;
+    public static final VoxelShape UP_COLLISION_SHAPE;
+    public static final VoxelShape DOWN_SHAPE;
+    public static final VoxelShape DOWN_COLLISION_SHAPE;
 
     public CopperGlass(Settings settings) {
         super(settings);
+        this.setDefaultState((BlockState)((BlockState)super.getDefaultState().with(WATERLOGGED, false)).with(FACING, Direction.SOUTH));
     }
 
-    public boolean hasSidedTransparency(BlockState state) {
-        return true;
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        if (context.isHolding(this.asItem())) {
+            VoxelShape var10000;
+            switch ((Direction)state.get(FACING)) {
+                case NORTH -> var10000 = NORTH_SHAPE;
+                case EAST -> var10000 = EAST_SHAPE;
+                case SOUTH -> var10000 = SOUTH_SHAPE;
+                case WEST -> var10000 = WEST_SHAPE;
+                case UP -> var10000 = UP_SHAPE;
+                case DOWN -> var10000 = DOWN_SHAPE;
+                default -> throw new IncompatibleClassChangeError();
+            }
+
+            return var10000;
+        } else {
+            return this.getCollisionShape(state, world, pos, context);
+        }
     }
 
-    public BlockState getPlacementState(@NotNull ItemPlacementContext ctx) {
-        FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
-        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite()).with(WATERLOGGED, fluidState.isOf(Fluids.WATER));
+    public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        VoxelShape var10000;
+        switch ((Direction)state.get(FACING)) {
+            case NORTH -> var10000 = NORTH_COLLISION_SHAPE;
+            case EAST -> var10000 = EAST_COLLISION_SHAPE;
+            case SOUTH -> var10000 = SOUTH_COLLISION_SHAPE;
+            case WEST -> var10000 = WEST_COLLISION_SHAPE;
+            case UP -> var10000 = UP_COLLISION_SHAPE;
+            case DOWN -> var10000 = DOWN_COLLISION_SHAPE;
+            default -> throw new IncompatibleClassChangeError();
+        }
+
+        return var10000;
     }
 
-    public BlockState rotate(BlockState state, BlockRotation rotation) {
-        return state.with(FACING, rotation.rotate(state.get(FACING)));
+    public VoxelShape getCameraCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return VoxelShapes.empty();
     }
 
-    public BlockState mirror(BlockState state, BlockMirror mirror) {
-        return state.rotate(mirror.getRotation(state.get(FACING)));
+    public VoxelShape getCullingShape(BlockState state) {
+        return VoxelShapes.empty();
+    }
+
+    public @Nullable BlockState getPlacementState(ItemPlacementContext ctx) {
+        WorldAccess world = ctx.getWorld();
+        BlockPos pos = ctx.getBlockPos();
+        Direction facing = ctx.getSide();
+        BlockState neighborState = world.getBlockState(pos.offset(facing.getOpposite()));
+        if (!ctx.shouldCancelInteraction() && neighborState.isOf(this)) {
+            Direction neighborFacing = (Direction)neighborState.get(FACING);
+            if (!neighborFacing.getAxis().equals(facing.getAxis())) {
+                facing = neighborFacing;
+            }
+        }
+
+        return (BlockState)((BlockState)this.getDefaultState().with(FACING, facing)).with(WATERLOGGED, world.getFluidState(pos).getFluid().equals(Fluids.WATER));
+    }
+
+    public FluidState getFluidState(BlockState state) {
+        return (Boolean)state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(new Property[]{FACING, WATERLOGGED});
     }
 
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (context.isHolding(ModItems.COPPER_GLASS)) {
-            switch ((Direction) state.get(FACING)) {
-                case NORTH:
-                default:
-                    return MORE_NORTH_SHAPE;
-                case SOUTH:
-                    return MORE_SOUTH_SHAPE;
-                case WEST:
-                    return MORE_WEST_SHAPE;
-                case EAST:
-                    return MORE_EAST_SHAPE;
+    public boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction direction) {
+        Direction facing = (Direction)state.get(FACING);
+        if (stateFrom.isOf(this)) {
+            Direction fromFacing = (Direction)stateFrom.get(FACING);
+            if (fromFacing.equals(direction)) {
+                return facing.equals(direction.getOpposite());
             }
-        } else {
-            switch ((Direction) state.get(FACING)) {
-                case NORTH:
-                default:
-                    return NORTH_SHAPE;
-                case SOUTH:
-                    return SOUTH_SHAPE;
-                case WEST:
-                    return WEST_SHAPE;
-                case EAST:
-                    return EAST_SHAPE;
+
+            if (fromFacing.equals(direction.getOpposite())) {
+                return facing.equals(direction);
+            }
+
+            if (fromFacing.equals(facing)) {
+                return true;
             }
         }
+
+        return super.isSideInvisible(state, stateFrom, direction);
     }
 
-    @Override
-    public boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction direction) {
-        return stateFrom.isOf(this) || super.isSideInvisible(state, stateFrom, direction);
-    }
-
-    public FluidState getFluidState(BlockState state) {
-        return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
+    public boolean canPathfindThrough(BlockState state, NavigationType type) {
+        return false;
     }
 
     static {
         WATERLOGGED = Properties.WATERLOGGED;
-        FACING = Properties.HORIZONTAL_FACING;
-        NORTH_SHAPE = Block.createCuboidShape(0.0F, 0.0F, 13.0F, 16.0F, 16.0F, 16.0F);
-        EAST_SHAPE = Block.createCuboidShape(0.0F, 0.0F, 0.0F, 3.0F, 16.0F, 16.0F);
-        SOUTH_SHAPE = Block.createCuboidShape(0.0F, 0.0F, 0.0F, 16.0F, 16.0F, 3.0F);
-        WEST_SHAPE = Block.createCuboidShape(13.0F, 0.0F, 0.0F, 16.0F, 16.0F, 16.0F);
+        FACING = Properties.FACING;
 
-        MORE_NORTH_SHAPE = Block.createCuboidShape(0.0F, 0.0F, 8.0F, 16.0F, 16.0F, 16.0F);
-        MORE_EAST_SHAPE = Block.createCuboidShape(0.0F, 0.0F, 0.0F, 8.0F, 16.0F, 16.0F);
-        MORE_SOUTH_SHAPE = Block.createCuboidShape(0.0F, 0.0F, 0.0F, 16.0F, 16.0F, 8.0F);
-        MORE_WEST_SHAPE = Block.createCuboidShape(8.0F, 0.0F, 0.0F, 16.0F, 16.0F, 16.0F);
+        NORTH_SHAPE = Block.createCuboidShape((double)0.0F, (double)0.0F, (double)12.0F, (double)16.0F, (double)16.0F, (double)16.0F);
+        NORTH_COLLISION_SHAPE = Block.createCuboidShape((double)0.0F, (double)0.0F, (double)15.0F, (double)16.0F, (double)16.0F, (double)16.0F);
+        EAST_SHAPE = Block.createCuboidShape((double)0.0F, (double)0.0F, (double)0.0F, (double)4.0F, (double)16.0F, (double)16.0F);
+        EAST_COLLISION_SHAPE = Block.createCuboidShape((double)0.0F, (double)0.0F, (double)0.0F, (double)1.0F, (double)16.0F, (double)16.0F);
+        SOUTH_SHAPE = Block.createCuboidShape((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)16.0F, (double)4.0F);
+        SOUTH_COLLISION_SHAPE = Block.createCuboidShape((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)16.0F, (double)1.0F);
+        WEST_SHAPE = Block.createCuboidShape((double)12.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)16.0F, (double)16.0F);
+        WEST_COLLISION_SHAPE = Block.createCuboidShape((double)15.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)16.0F, (double)16.0F);
+        UP_SHAPE = Block.createCuboidShape((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)4.0F, (double)16.0F);
+        UP_COLLISION_SHAPE = Block.createCuboidShape((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)1.0F, (double)16.0F);
+        DOWN_SHAPE = Block.createCuboidShape((double)0.0F, (double)12.0F, (double)0.0F, (double)16.0F, (double)16.0F, (double)16.0F);
+        DOWN_COLLISION_SHAPE = Block.createCuboidShape((double)0.0F, (double)15.0F, (double)0.0F, (double)16.0F, (double)16.0F, (double)16.0F);
     }
 }
