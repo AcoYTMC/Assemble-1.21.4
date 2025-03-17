@@ -19,7 +19,26 @@
   "block.assemble.magenta_seat": "Magenta Seat",
   "block.assemble.pink_seat": "Pink Seat",
 
+  "block.assemble.white_shag_block": "White Shag Block",
+  "block.assemble.light_gray_shag_block": "Light Gray Shag Block",
+  "block.assemble.gray_shag_block": "Gray Shag Block",
+  "block.assemble.black_shag_block": "Black Shag Block",
+  "block.assemble.brown_shag_block": "Brown Shag Block",
+  "block.assemble.red_shag_block": "Red Shag Block",
+  "block.assemble.orange_shag_block": "Orange Shag Block",
+  "block.assemble.yellow_shag_block": "Yellow Shag Block",
+  "block.assemble.lime_shag_block": "Lime Shag Block",
+  "block.assemble.green_shag_block": "Green Shag Block",
+  "block.assemble.cyan_shag_block": "Cyan Shag Block",
+  "block.assemble.light_blue_shag_block": "Light Blue Shag Block",
+  "block.assemble.blue_shag_block": "Blue Shag Block",
+  "block.assemble.purple_shag_block": "Purple Shag Block",
+  "block.assemble.magenta_shag_block": "Magenta Shag Block",
+  "block.assemble.pink_shag_block": "Pink Shag Block",
+
   "block.assemble.copper_glass": "Copper Glass",
+
+  "block.assemble.charged_copper": "Charged Copper",
 
   "item.assemble.hammer": "Hammer",
   "item.assemble.hammer.desc": "§8A powerful tool for building.",

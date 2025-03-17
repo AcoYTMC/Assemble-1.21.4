@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "model",
-    "model": "assemble:block/cyan_seat"
+    "model": "assemble:block/seats/cyan_seat"
   }
 }

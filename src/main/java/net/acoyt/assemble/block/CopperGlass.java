@@ -136,17 +136,18 @@ public class CopperGlass extends Block implements Waterloggable {
         WATERLOGGED = Properties.WATERLOGGED;
         FACING = Properties.FACING;
 
-        NORTH_SHAPE = Block.createCuboidShape((double)0.0F, (double)0.0F, (double)12.0F, (double)16.0F, (double)16.0F, (double)16.0F);
-        NORTH_COLLISION_SHAPE = Block.createCuboidShape((double)0.0F, (double)0.0F, (double)15.0F, (double)16.0F, (double)16.0F, (double)16.0F);
-        EAST_SHAPE = Block.createCuboidShape((double)0.0F, (double)0.0F, (double)0.0F, (double)4.0F, (double)16.0F, (double)16.0F);
-        EAST_COLLISION_SHAPE = Block.createCuboidShape((double)0.0F, (double)0.0F, (double)0.0F, (double)1.0F, (double)16.0F, (double)16.0F);
-        SOUTH_SHAPE = Block.createCuboidShape((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)16.0F, (double)4.0F);
-        SOUTH_COLLISION_SHAPE = Block.createCuboidShape((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)16.0F, (double)1.0F);
-        WEST_SHAPE = Block.createCuboidShape((double)12.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)16.0F, (double)16.0F);
-        WEST_COLLISION_SHAPE = Block.createCuboidShape((double)15.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)16.0F, (double)16.0F);
-        UP_SHAPE = Block.createCuboidShape((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)4.0F, (double)16.0F);
-        UP_COLLISION_SHAPE = Block.createCuboidShape((double)0.0F, (double)0.0F, (double)0.0F, (double)16.0F, (double)1.0F, (double)16.0F);
-        DOWN_SHAPE = Block.createCuboidShape((double)0.0F, (double)12.0F, (double)0.0F, (double)16.0F, (double)16.0F, (double)16.0F);
-        DOWN_COLLISION_SHAPE = Block.createCuboidShape((double)0.0F, (double)15.0F, (double)0.0F, (double)16.0F, (double)16.0F, (double)16.0F);
+        NORTH_SHAPE = Block.createCuboidShape(0.0F, 0.0F, 14.0F, 16.0F, 16.0F, 16.0F);
+        EAST_SHAPE = Block.createCuboidShape(0.0F, 0.0F, 0.0F, 2.0F, 16.0F, 16.0F);
+        SOUTH_SHAPE = Block.createCuboidShape(0.0F, 0.0F, 0.0F, 16.0F, 16.0F, 2.0F);
+        WEST_SHAPE = Block.createCuboidShape(14.0F, 0.0F, 0.0F, 16.0F, 16.0F, 16.0F);
+        UP_SHAPE = Block.createCuboidShape(0.0F, 0.0F, 0.0F, 16.0F, 2.0F, 16.0F);
+        DOWN_SHAPE = Block.createCuboidShape(0.0F, 14.0F, 0.0F, 16.0F, 16.0F, 16.0F);
+        
+        NORTH_COLLISION_SHAPE = Block.createCuboidShape(0.0F, 0.0F, 14.0F, 16.0F, 16.0F, 16.0F);
+        EAST_COLLISION_SHAPE = Block.createCuboidShape(0.0F, 0.0F, 0.0F, 2.0F, 16.0F, 16.0F);
+        SOUTH_COLLISION_SHAPE = Block.createCuboidShape(0.0F, 0.0F, 0.0F, 16.0F, 16.0F, 2.0F);
+        WEST_COLLISION_SHAPE = Block.createCuboidShape(14.0F, 0.0F, 0.0F, 16.0F, 16.0F, 16.0F);
+        UP_COLLISION_SHAPE = Block.createCuboidShape(0.0F, 0.0F, 0.0F, 16.0F, 2.0F, 16.0F);
+        DOWN_COLLISION_SHAPE = Block.createCuboidShape(0.0F, 14.0F, 0.0F, 16.0F, 16.0F, 16.0F);
     }
 }

@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "assemble:block/charged_copper_bottom",
+    "front": "assemble:block/charged_copper_side",
+    "particle": "assemble:block/charged_copper_side",
+    "side": "assemble:block/charged_copper_side",
+    "top": "assemble:block/charged_copper_top"
+  }
+}

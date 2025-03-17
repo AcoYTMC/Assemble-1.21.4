@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "assemble:block/green_seat"
+      "model": "assemble:block/seats/green_seat"
     }
   }
 }

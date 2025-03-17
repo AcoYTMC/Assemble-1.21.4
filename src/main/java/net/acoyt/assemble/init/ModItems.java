@@ -1,6 +1,7 @@
 package net.acoyt.assemble.init;
 
 import net.acoyt.assemble.Assemble;
+import net.acoyt.assemble.item.CleavingScissorsItem;
 import net.acoyt.assemble.item.HammerItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.component.type.ConsumableComponent;
@@ -13,6 +14,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 
@@ -27,6 +29,8 @@ public interface ModItems {
     Item FRIED_CHICKEN = createItem("fried_chicken", new Item(new Item.Settings().food(new FoodComponent(3, 6.5f, true), new ConsumableComponent(1.6f, UseAction.EAT, SoundEvents.ENTITY_GENERIC_EAT, true, List.of())).registryKey(keyOf("fried_chicken"))));
 
     Item GOAT_SHAG = createItem("goat_shag", new Item(new Item.Settings().registryKey(keyOf("goat_shag"))));
+
+    Item CLEAVING_SCISSORS = createItem("cleaving_scissors", new CleavingScissorsItem(BlockTags.WOOL, new Item.Settings().registryKey(keyOf("cleaving_scissors"))));
 
     static RegistryKey<Item> keyOf(String id) {
         return RegistryKey.of(RegistryKeys.ITEM, Assemble.id(id));

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "assemble:block/pink_seat"
+      "model": "assemble:block/seats/pink_seat"
     }
   }
 }

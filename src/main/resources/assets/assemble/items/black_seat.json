@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "model",
-    "model": "assemble:block/black_seat"
+    "model": "assemble:block/seats/black_seat"
   }
 }

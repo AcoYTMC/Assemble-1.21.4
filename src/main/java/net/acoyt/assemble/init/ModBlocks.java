@@ -1,10 +1,8 @@
 package net.acoyt.assemble.init;
 
 import net.acoyt.assemble.Assemble;
-import net.acoyt.assemble.block.ChickenBucket;
-import net.acoyt.assemble.block.CopperGlass;
-import net.acoyt.assemble.block.LegalBrick;
-import net.acoyt.assemble.block.SeatBlock;
+import net.acoyt.assemble.block.*;
+import net.acoyt.assemble.block.mechanism.ChargedCopperBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
@@ -34,6 +32,24 @@ public interface ModBlocks {
     Block MAGENTA_SEAT = createBlock("magenta_seat", new SeatBlock(AbstractBlock.Settings.copy(Blocks.SPRUCE_PLANKS).mapColor(MapColor.MAGENTA).registryKey(keyOf("magenta_seat"))), true);
     Block PINK_SEAT = createBlock("pink_seat", new SeatBlock(AbstractBlock.Settings.copy(Blocks.SPRUCE_PLANKS).mapColor(MapColor.DULL_PINK).registryKey(keyOf("pink_seat"))), true);
 
+    // Goat Shag
+    Block WHITE_SHAG_BLOCK = createBlock("white_shag_block", new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).registryKey(keyOf("white_shag_block"))), true);
+    Block LIGHT_GRAY_SHAG_BLOCK = createBlock("light_gray_shag_block", new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).registryKey(keyOf("light_gray_shag_block"))), true);
+    Block GRAY_SHAG_BLOCK = createBlock("gray_shag_block", new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).registryKey(keyOf("gray_shag_block"))), true);
+    Block BLACK_SHAG_BLOCK = createBlock("black_shag_block", new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).registryKey(keyOf("black_shag_block"))), true);
+    Block BROWN_SHAG_BLOCK = createBlock("brown_shag_block", new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).registryKey(keyOf("brown_shag_block"))), true);
+    Block RED_SHAG_BLOCK = createBlock("red_shag_block", new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).registryKey(keyOf("red_shag_block"))), true);
+    Block ORANGE_SHAG_BLOCK = createBlock("orange_shag_block", new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).registryKey(keyOf("orange_shag_block"))), true);
+    Block YELLOW_SHAG_BLOCK = createBlock("yellow_shag_block", new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).registryKey(keyOf("yellow_shag_block"))), true);
+    Block LIME_SHAG_BLOCK = createBlock("lime_shag_block", new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).registryKey(keyOf("lime_shag_block"))), true);
+    Block GREEN_SHAG_BLOCK = createBlock("green_shag_block", new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).registryKey(keyOf("green_shag_block"))), true);
+    Block CYAN_SHAG_BLOCK = createBlock("cyan_shag_block", new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).registryKey(keyOf("cyan_shag_block"))), true);
+    Block LIGHT_BLUE_SHAG_BLOCK = createBlock("light_blue_shag_block", new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).registryKey(keyOf("light_blue_shag_block"))), true);
+    Block BLUE_SHAG_BLOCK = createBlock("blue_shag_block", new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).registryKey(keyOf("blue_shag_block"))), true);
+    Block PURPLE_SHAG_BLOCK = createBlock("purple_shag_block", new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).registryKey(keyOf("purple_shag_block"))), true);
+    Block MAGENTA_SHAG_BLOCK = createBlock("magenta_shag_block", new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).registryKey(keyOf("magenta_shag_block"))), true);
+    Block PINK_SHAG_BLOCK = createBlock("pink_shag_block", new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).registryKey(keyOf("pink_shag_block"))), true);
+
     // Copper Glass
     Block COPPER_GLASS = createBlock("copper_glass", new CopperGlass(AbstractBlock.Settings.copy(Blocks.GLASS).nonOpaque().registryKey(keyOf("copper_glass"))), true);
 
@@ -45,6 +61,9 @@ public interface ModBlocks {
 
     // Legally Distinct Brick
     Block LEGAL_BRICK = createBlock("legal_brick", new LegalBrick(AbstractBlock.Settings.copy(Blocks.BRICKS).nonOpaque().registryKey(keyOf("legal_brick"))), true);
+
+    // Copper Stuff
+    Block CHARGED_COPPER = createBlock("charged_copper", new ChargedCopperBlock(AbstractBlock.Settings.copy(Blocks.COPPER_BLOCK).registryKey(keyOf("charged_copper"))), true);
 
     private static RegistryKey<Block> keyOf(String id) {
         return RegistryKey.of(RegistryKeys.BLOCK, Assemble.id(id));
@@ -103,6 +122,7 @@ public interface ModBlocks {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register((entries) -> {
             entries.add(COPPER_GLASS);
+            entries.addAfter(Blocks.COPPER_BULB, CHARGED_COPPER);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register((entries) -> {

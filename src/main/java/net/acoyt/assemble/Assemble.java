@@ -35,6 +35,7 @@ public class Assemble implements ModInitializer {
 	public void onInitialize() {
 		ModItems.init();
 		ModBlocks.init();
+		ModBlockEntities.init();
 
 		ModEntities.init();
 

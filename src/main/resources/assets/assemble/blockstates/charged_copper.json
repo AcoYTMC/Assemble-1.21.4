@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "assemble:block/charged_copper"
+    },
+    "lit=true": {
+      "model": "assemble:block/charged_copper_lit"
+    }
+  }
+}
